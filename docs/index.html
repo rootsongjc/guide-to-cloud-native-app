@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.55.5" />
+
+<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+
+<link rel="alternate" type="application/rss&#43;xml" href="https://jimmysong.io/guide-to-cloud-native-app/docs/index.xml">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/guide-to-cloud-native-app/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-192x192.png" sizes="192x192">
+
+<title>白皮书 | 云原生应用白皮书</title><meta property="og:title" content="白皮书" />
+<meta property="og:description" content="Open APplication Model（开放应用模型）" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/" />
+
+
+<meta itemprop="name" content="白皮书">
+<meta itemprop="description" content="Open APplication Model（开放应用模型）">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="白皮书"/>
+<meta name="twitter:description" content="Open APplication Model（开放应用模型）"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-93485976-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<link rel="preload" href="/guide-to-cloud-native-app/scss/main.min.f897137c56df993ddbdc2fae663b8500c5b673f0aa583536195bce7e28a80d63.css" as="style">
+<link href="/guide-to-cloud-native-app/scss/main.min.f897137c56df993ddbdc2fae663b8500c5b673f0aa583536195bce7e28a80d63.css" rel="stylesheet" integrity="">
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+
+
+
+    <title>白皮书 | 云原生应用白皮书</title>
+  </head>
+  <body class="td-section">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
+        <a class="navbar-brand" href="/guide-to-cloud-native-app/">
+        <span class="text-uppercase font-weight-bold">云原生应用白皮书</span>
+	</a>
+	<div class="td-navbar-nav-scroll ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav mt-2 mt-lg-0">
+			
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/rootsongjc/guide-to-cloud-native-app" target="_blank" ><span>GitHub</span></a>
+			</li>
+			
+			<li class="nav-item mr-4 mb-2 mb-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link active" href="/guide-to-cloud-native-app/docs/" ><span class="active">白皮书</span></a>
+			</li>
+			
+			
+			
+		</ul>
+	</div>
+	<div class="navbar-nav d-none d-lg-block">
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <div class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+
+
+
+
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+<input type="search" class="form-control td-search-input" placeholder="&#xf002 搜索本站" aria-label="搜索本站" autocomplete="off">
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  
+  <nav class="collapse td-sidebar-nav pt-2 pl-4" id="td-section-nav">
+    
+    
+
+
+
+
+
+
+<ul class="td-sidebar-nav__section pr-md-3">
+  <li class="td-sidebar-nav__section-title">
+    <a  href="/guide-to-cloud-native-app/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">白皮书</a>
+  </li>
+  <ul>
+    <li class="collapse show" id="guide-to-cloud-native-app-docs">
+      
+      
+      
+    </li>
+  </ul>
+</ul>
+
+  </nav>
+</div>
+
+
+
+
+          </div>
+          <div class="d-none d-xl-block col-xl-2 td-toc d-print-none">
+            
+
+
+
+
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+
+
+
+
+
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e7%99%bd%e7%9a%ae%e4%b9%a6" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+
+
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
+
+</div>
+
+
+
+
+
+
+          </div>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            <nav aria-label="breadcrumb" class="d-none d-md-block d-print-none">
+	<ol class="breadcrumb spb-1">
+		
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/guide-to-cloud-native-app/docs/">白皮书</a>
+</li>
+
+	</ol>
+</nav	>
+
+
+            
+<div class="td-content">
+	<h1>白皮书</h1>
+	
+	<p>敬请期待</p>
+
+        <div class="section-index">
+    
+    
+    
+    
+    <hr class="panel-line">
+        
+            
+        
+    
+</div>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">修改于 2020年5月22日: <a  href="https://github.com/rootsongjc/guide-to-cloud-native-app/commit/a82dcb7d5930494bef05f9c7ab1e4f5fed4a0ae9">Update main.yml (a82dcb7)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark py-5 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-12 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="list-inline mb-0">
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Twitter" aria-label="Twitter">
+    <a class="text-white" target="_blank" href="https://twitter.com/jimmysongio">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="GitHub" aria-label="GitHub">
+    <a class="text-white" target="_blank" href="https://github.com/rootsongjc">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="list-inline-item mx-2 h3" data-toggle="tooltip" data-placement="top" title="Website" aria-label="Website">
+    <a class="text-white" target="_blank" href="https://jimmysong.io">
+      <i class="fas fa-globe-asia"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+        
+        
+      </div>
+      <div class="col-12 col-sm-4 text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2020 Jimmy Song 保留所有权利</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- Baidu analysis -->
+<meta name="baidu-site-verification" content="g8IYR9SNLF" />
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?11f7d254cfa4e0ca44b175c66d379ecc";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+    </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script src="/guide-to-cloud-native-app/js/main.min.4496ff348eadbf025ecf9c1223696ca0493a50efd9127546d4e63beb3b44c101.js" integrity="sha256-RJb/NI6tvwJez5wSI2lsoEk6UO/ZEnVG1OY76ztEwQE=" crossorigin="anonymous"></script>
+
+
+
+
+
+  </body>
+</html>

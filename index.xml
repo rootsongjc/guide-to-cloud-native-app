@@ -1,0 +1,16 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>云原生应用白皮书 – 定义云原生应用标准</title>
+    <link>https://jimmysong.io/guide-to-cloud-native-app/</link>
+    <description>Recent content in 定义云原生应用标准 on 云原生应用白皮书</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://jimmysong.io/guide-to-cloud-native-app/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+      
+    
+    
+  </channel>
+</rss>
