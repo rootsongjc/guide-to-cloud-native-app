@@ -54,7 +54,7 @@ id = "UA-93485976-1"
 [languages]
 [languages.zh]
 weight = 1
-description = "Open APplication Model（开放应用模型）"
+description = "云原生应用白皮书"
 languageName ="中文"
 contentDir = "content/zh"
 time_format_default = "2006年1月2日"
