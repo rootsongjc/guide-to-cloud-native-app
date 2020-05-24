@@ -1,0 +1,292 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>云原生应用白皮书 – 规范模型</title>
+    <link>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/</link>
+    <description>Recent content in 规范模型 on 云原生应用白皮书</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://jimmysong.io/guide-to-cloud-native-app/docs/spec/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Workload</title>
+      <link>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/workload/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/workload/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;本文基于 OAM v1alpha2 版本。&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;应用程序可用的 &lt;code&gt;Workload&lt;/code&gt; 类型是由平台提供商和基础设施运维人员提供的。&lt;code&gt;Workload&lt;/code&gt; 模型参照 &lt;a href=&#34;https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/#required-fields&#34; target=&#34;_blank&#34;&gt;Kubernetes 规范&lt;/a&gt;定义，理论上，平台商可以定义如容器、Pod、Serverless 函数、虚拟机、数据库、消息队列等任何类型的 &lt;code&gt;Workload&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;下面是一个 &lt;code&gt;Workload&lt;/code&gt; 定义的是示例。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;apiVersion&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;core.oam.dev/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;kind&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;WorkloadDefinition&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;metadata&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;schema.example.jimmysong.io&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;spec&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;definitionRef&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;schema.example.jimmysong.io&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;关于 definitionRef&lt;/h4&gt;
+CR 即 Custom Resource（自定义资源），指的是实例化后的 Kubernetes &lt;a href=&#34;https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/&#34; target=&#34;_blank&#34;&gt;CRD&lt;/a&gt;。应用开发者可以在 &lt;code&gt;Component&lt;/code&gt; 的 &lt;code&gt;Workload&lt;/code&gt; 中直接定义 CR。&lt;code&gt;definitionRef&lt;/code&gt; 将 &lt;code&gt;Workload&lt;/code&gt; shcema 在 OAM 解释器中注册，通过增加一个抽象层，使其与 Operator 框架解耦（毕竟不是说有 CRD 都是面向应用开发者的），表示可作为负载类型使用。
+&lt;/div&gt;
+
+
+&lt;p&gt;请保持 &lt;code&gt;spec.definitionRef.name&lt;/code&gt; 的值与 &lt;code&gt;metadata.name&lt;/code&gt; 的值相同，因为 &lt;code&gt;definitionRef&lt;/code&gt; 是对相应的 &lt;code&gt;Workload&lt;/code&gt; schema 的引用，对于 Kubernetes 平台来说，即对 &lt;a href=&#34;https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/&#34; target=&#34;_blank&#34;&gt;CRD&lt;/a&gt; 的引用。应用开发者在定义 &lt;a href=&#34;../component&#34;&gt;&lt;code&gt;Component&lt;/code&gt;&lt;/a&gt; 引用该 &lt;code&gt;Workload&lt;/code&gt; 的时候需要直接实例化一个 CRD 的配置（及创建一个 CR）。&lt;/p&gt;
+
+&lt;p&gt;OAM 中将 &lt;code&gt;Workload&lt;/code&gt; 分成了 &lt;code&gt;core.oam.dev&lt;/code&gt;（核心）、&lt;code&gt;standard.oam.dev&lt;/code&gt;（标准）及自定义扩展类别。目前 OAM 中支持的核心 &lt;code&gt;Workload&lt;/code&gt; 有 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/core/workloads/containerized_workload/containerized_workload.md&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;ContainerizedWorkload&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;关于 Workload 的详细信息参考 OAM 中的 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/3.workload.md&#34; target=&#34;_blank&#34;&gt;Workload 规范&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Component</title>
+      <link>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/component/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/component/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;本文基于 OAM v1alpha2 版本。&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;Component&lt;/code&gt; 用于定义应用程序的基本组件，其中包含了对 Workload 的引用，一个 Component 中只能定义一个 Workload，这个 Workload 是与平台无关的，可以直接引用 Kubernetes 中的 CRD。&lt;/p&gt;
+
+&lt;p&gt;下面是根据 OAM 规范定义的一个 Component 示例。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;apiVersion&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;core.oam.dev/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;kind&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;Component&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;metadata&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-component&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;spec&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;workload&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;apiVersion&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;core.oam.dev/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;kind&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;ContainerizedWorkload&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;spec&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;os&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;linux&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;containers&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;server&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;image&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-image&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;latest&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;parameters&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;myServerImage&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;required&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;true&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;fieldPaths&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;.spec.containers[0].image&amp;#34;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;Component&lt;/code&gt;  定义由以下几个部分组成：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;metadata&lt;/code&gt;：关于 Component 的信息，主要是针对应用运维的信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;workload&lt;/code&gt;：该 Component 的实际工作负载。具体有哪些负载类型可用可以咨询平台提供商，平台运维也可以根据 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/3.workload.md&#34; target=&#34;_blank&#34;&gt;Workload 规范&lt;/a&gt; 来扩展负载类型，比如 &lt;code&gt;Containers&lt;/code&gt;、&lt;code&gt;Functions&lt;/code&gt;、&lt;code&gt;VirtualMachine&lt;/code&gt;、&lt;a href=&#34;https://istio.io/docs/reference/config/networking/virtual-service/&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;VirtualService&lt;/code&gt;&lt;/a&gt; 等。OAM 目前定义的核心负载类型有 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/core/workloads/containerized_workload/containerized_workload.md&#34; target=&#34;_blank&#34;&gt;ContainerizedWorkload&lt;/a&gt;（与 Kubernetes 中的 &lt;a href=&#34;https://kubernetes.io/zh/docs/concepts/workloads/pods/pod/&#34; target=&#34;_blank&#34;&gt;Pod 定义&lt;/a&gt;类似，同样支持定义多个容器，但是缺少了 Pod 中的一些属性 ）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;parameters&lt;/code&gt;：在应用程序运行时可以调整的参数，即应用开发者在 &lt;code&gt;Component&lt;/code&gt; 中的原有定义可以在运行时被应用运维人员覆盖。&lt;code&gt;parameters&lt;/code&gt; 使用 &lt;a href=&#34;https://kubernetes.io/zh/docs/reference/kubectl/jsonpath/&#34; target=&#34;_blank&#34;&gt;JSONPath&lt;/a&gt; 的方式引用 &lt;code&gt;spec&lt;/code&gt; 中的字段。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;Component 是可变的&lt;/h4&gt;
+&lt;code&gt;Component&lt;/code&gt; 的配置在应用后是&lt;strong&gt;可更改的（Mutable）&lt;/strong&gt;， 有的 &lt;a href=&#34;../trait&#34;&gt;&lt;code&gt;Trait&lt;/code&gt;&lt;/a&gt; 可能会监听 &lt;code&gt;Component&lt;/code&gt; 的变更并作出相应的操作，每次变更都会导致新的 &lt;code&gt;ApplicationConfiguration&lt;/code&gt; 发布。
+&lt;/div&gt;
+
+
+&lt;p&gt;关于 Component 的详细信息请参考 OAM 中的 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/4.component.md&#34; target=&#34;_blank&#34;&gt;Component 规范&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Trait</title>
+      <link>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/trait/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/trait/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;本文基于 OAM v1alpha2 版本。&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;Trait&lt;/code&gt; 用于定义 &lt;code&gt;Component&lt;/code&gt; 的运维属性，是对 &lt;code&gt;Component&lt;/code&gt; 运行时的叠加，需要通过 &lt;code&gt;ApplicationConfiguration&lt;/code&gt; 的配置将其与 &lt;code&gt;Component&lt;/code&gt; 绑定，用于动态修改 &lt;code&gt;Component&lt;/code&gt; 中 &lt;code&gt;workload&lt;/code&gt; 的行为。&lt;/p&gt;
+
+&lt;p&gt;不同的 &lt;code&gt;Trait&lt;/code&gt; 可能适用于不同的 &lt;code&gt;Component&lt;/code&gt;（因为不同的 &lt;code&gt;Component&lt;/code&gt; 中的  &lt;code&gt;workload&lt;/code&gt; 可能不同，因此它们的运维特性也可能不同），如流量路由规则（如负载均衡策略、入口路由、出口路由、百分比路由、限流、熔断、超时限制、故障注入等）、自动缩放策略、升级策略、发布策略等。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Trait&lt;/code&gt; 还具有以下几个特征：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Trait&lt;/code&gt; 是根据在 &lt;code&gt;Component&lt;/code&gt; 中引用的顺序应用的，如果某些运维特征本身具有依赖性，可以通过显式排序来解决；&lt;/li&gt;
+&lt;li&gt;对于某一类型的 &lt;code&gt;Trait&lt;/code&gt; 在同一个 &lt;code&gt;Component&lt;/code&gt; 实例只能应用一个；&lt;/li&gt;
+&lt;li&gt;在应用 &lt;code&gt;Trait&lt;/code&gt; 时，需要进行冲突检查，如果一组 &lt;code&gt;Trait&lt;/code&gt; 的特性不能满足运维组合，则判定为不合法；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;将运维属性从应用组件本身的定义（ &lt;code&gt;Component&lt;/code&gt;）中剥离有如下几个好处：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Trait&lt;/code&gt; 通常由应用运维人员定义和维护，而不需要应用开发人员参与，应用开发人员对 &lt;code&gt;Trait&lt;/code&gt; 可能无感知，减轻了应用开发人员的负担；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Trait&lt;/code&gt; 将云原生应用程序的一些通用运维属性从应用配置中剥离出来，大大提高了运维逻辑的可复用性；&lt;/li&gt;
+&lt;li&gt;应用 &lt;code&gt;Trait&lt;/code&gt; 组合前进行运维特性检查，可以有效防止配置冲突和无法预期的情况发生；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面是根据 OAM 规范定义的一个 Trait 示例。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;apiVersion&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;core.oam.dev/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;kind&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;TraitDefinition&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;metadata&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manualscalertrait.core.oam.dev&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;spec&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;appliesToWorkloads&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;core.oam.dev/v1alpha2.ContainerizedWorkload&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;definitionRef&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manualscalertrait.core.oam.dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;关于 definitionRef&lt;/h4&gt;
+CR 即 Custom Resource（自定义资源），指的是实例化后的 Kubernetes &lt;a href=&#34;https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/&#34; target=&#34;_blank&#34;&gt;CRD&lt;/a&gt;。&lt;code&gt;definitionRef&lt;/code&gt; 将 &lt;code&gt;Trait&lt;/code&gt; shcema 在 OAM 解释器中注册，通过增加一个抽象层，使其与 Operator 框架解耦（毕竟不是说有 CRD 都是面向应用开发者的）。
+&lt;/div&gt;
+
+
+&lt;p&gt;OAM 中将 &lt;code&gt;Trait&lt;/code&gt; 分成了 &lt;code&gt;core.oam.dev&lt;/code&gt;（核心）、&lt;code&gt;standard.oam.dev&lt;/code&gt;（标准）及自定义扩展类别。一个 &lt;code&gt;Trait&lt;/code&gt; 具体适用于哪些 &lt;code&gt;workload&lt;/code&gt; 可以在 &lt;code&gt;Trait&lt;/code&gt; 的 &lt;code&gt;TraitDefinition&lt;/code&gt; 中定义。目前 OAM 中支持的核心 &lt;code&gt;Trait&lt;/code&gt; 有 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/core/traits/manual_scaler_trait.md&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;ManualScalerTrait&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;关于 Trait 的详细请参考 OAM 中的 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/6.traits.md&#34; target=&#34;_blank&#34;&gt;Trait 规范&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: ApplicationScope</title>
+      <link>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/application-scope/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/application-scope/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;本文基于 OAM v1alpha2 版本。&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;ApplicationScope&lt;/code&gt; 根据 &lt;code&gt;Component&lt;/code&gt; 中的应用逻辑或共同行为划定作用域，将其分组以便于管理。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ApplicationScope&lt;/code&gt; 具有以下特征：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;一个 &lt;code&gt;Component&lt;/code&gt; 可能属于一个或多个 &lt;code&gt;ApplicationScope&lt;/code&gt;；&lt;/li&gt;
+&lt;li&gt;有的 &lt;code&gt;ApplicationScope&lt;/code&gt; 可以限定其中是否可以部署同一个 &lt;code&gt;Component&lt;/code&gt; 的多个实例；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ApplicationScope&lt;/code&gt; 可以作为 &lt;code&gt;Component&lt;/code&gt; 与基础设施的连接层，提供身份、网络或安全能力；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Trait&lt;/code&gt; 可以根据 &lt;code&gt;Component&lt;/code&gt; 中定义的 &lt;code&gt;ApplicationScope&lt;/code&gt; 来执行适当的运维特性；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;目前 OAM 中支持的核心应用范围类型有 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/standard/scopes/network_scope.md&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;NetworkScope&lt;/code&gt;&lt;/a&gt; 和 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/standard/scopes/health_scope.md&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;HealthScope&lt;/code&gt;&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;下面是使用 &lt;code&gt;NetworkScope&lt;/code&gt; 来声明作用域的示例：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;apiVersion&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;core.oam.dev/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;kind&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;NetworkScope&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;metadata&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-network&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;labels&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;region&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-region&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;environment&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;production&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;spec&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;networkId&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-network&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;subnetIds&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-subnetwork-&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;01&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-subnetwork-&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;02&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-subnetwork-&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;03&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;internetGatewayType&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;nat&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;上面的示例的作用是将三个子网划定为一组网络边界，这通常是使用 VPC 实现。&lt;/p&gt;
+
+&lt;p&gt;关于 &lt;code&gt;ApplicationScope&lt;/code&gt; 的详细信息请参考 OAM 中的 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/5.application_scopes.md&#34; target=&#34;_blank&#34;&gt;ApplicationScope 规范&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: ApplicationConfiguration</title>
+      <link>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/application-configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://jimmysong.io/guide-to-cloud-native-app/docs/spec/application-configuration/</guid>
+      <description>
+        
+        
+        
+
+&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;
+&lt;p&gt;本文基于 OAM v1alpha2 版本。&lt;/p&gt;
+
+&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;ApplicationConfiguration&lt;/code&gt; 将 &lt;code&gt;Component&lt;/code&gt; 与 &lt;code&gt;Trait&lt;/code&gt; 组合，定义了一个应用程序的配置，&lt;code&gt;Component&lt;/code&gt; 每部署一次就会产生一个实例（&lt;code&gt;Instance&lt;/code&gt;），实例是可以被升级的（包括回滚和重新部署），而每次部署和升级就会产生一次新的发布（&lt;code&gt;Release&lt;/code&gt;）。&lt;/p&gt;
+
+
+
+&lt;div class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;
+&lt;h4 class=&#34;alert-heading&#34;&gt;关于 Release&lt;/h4&gt;
+&lt;a href=&#34;https://12factor.net/zh_cn/&#34; target=&#34;_blank&#34;&gt;12 因素应用&lt;/a&gt;严格区分&lt;a href=&#34;https://12factor.net/zh_cn/build-release-run&#34; target=&#34;_blank&#34;&gt;构建、发布、运行&lt;/a&gt;这三个步骤。每次构建和修改配置后都会产生一次新的发布（&lt;code&gt;Release&lt;/code&gt;）。OAM 中将 &lt;code&gt;Component&lt;/code&gt;、&lt;code&gt;Trait&lt;/code&gt;、&lt;code&gt;ApplicaitonScope&lt;/code&gt; 组合而成的 &lt;code&gt;ApplicationConfiguration&lt;/code&gt; 即等同于 &lt;code&gt;Release&lt;/code&gt;。每次对 &lt;code&gt;ApplciationConfiguration&lt;/code&gt; 的更新都会创建一个新的 &lt;code&gt;Release&lt;/code&gt;（跟 &lt;a href=&#34;https://helm.sh&#34; target=&#34;_blank&#34;&gt;Helm&lt;/a&gt; 中的 &lt;code&gt;Release&lt;/code&gt; 概念一致）。
+&lt;/div&gt;
+
+
+&lt;p&gt;下面是一个 &lt;code&gt;ApplicationConfiguration&lt;/code&gt; 示例。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;apiVersion&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;core.oam.dev/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;kind&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;ApplicationConfiguration&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;metadata&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-app&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;annotations&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;version&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;v1.&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0.0&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;description&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;My first application deployment.&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;&lt;/span&gt;spec&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;  &lt;/span&gt;components&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;    &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;componentName&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-component&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;parameterValues&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;PARAMETER_NAME&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;value&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;SUPPLIED_VALUE&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;ANOTHER_PARAMETER&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;value&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;AnotherValue&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;traits&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;manualscaler.core.oam.dev&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;version&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;v1&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;          &lt;/span&gt;spec&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;replicaCount&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;      &lt;/span&gt;scopes&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;        &lt;/span&gt;-&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;scopeRef&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;apiVersion&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;core.oam.dev/v1alpha2&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;kind&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;NetworkScope&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt;            &lt;/span&gt;name&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#f8f8f8;text-decoration:underline&#34;&gt; &lt;/span&gt;my-network&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;关于 &lt;code&gt;ApplicationConfiguration&lt;/code&gt; 的详细信息参考 OAM 中的 &lt;a href=&#34;https://github.com/oam-dev/spec/blob/master/7.application_configuration.md&#34; target=&#34;_blank&#34;&gt;ApplicationConfiguration 规范&lt;/a&gt;。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

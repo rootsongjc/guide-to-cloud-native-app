@@ -7,7 +7,6 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="https://jimmysong.io/guide-to-cloud-native-app/docs/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,18 +20,25 @@
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-192x192.png" sizes="192x192">
 
-<title>白皮书 | 云原生应用白皮书</title><meta property="og:title" content="白皮书" />
-<meta property="og:description" content="Open APplication Model（开放应用模型）" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/" />
+<title>ApplicationScope | 云原生应用白皮书</title><meta property="og:title" content="ApplicationScope" />
+<meta property="og:description" content="`ApplicationScope` 用于定义 `Component` 的边界以用于逻辑分组。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/spec/application-scope/" />
+<meta property="article:modified_time" content="2020-05-25T00:15:20&#43;08:00"/>
+
+<meta itemprop="name" content="ApplicationScope">
+<meta itemprop="description" content="`ApplicationScope` 用于定义 `Component` 的边界以用于逻辑分组。">
 
 
-<meta itemprop="name" content="白皮书">
-<meta itemprop="description" content="Open APplication Model（开放应用模型）">
+<meta itemprop="dateModified" content="2020-05-25T00:15:20&#43;08:00" />
+<meta itemprop="wordCount" content="49">
 
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="白皮书"/>
-<meta name="twitter:description" content="Open APplication Model（开放应用模型）"/>
+<meta name="twitter:title" content="ApplicationScope"/>
+<meta name="twitter:description" content="`ApplicationScope` 用于定义 `Component` 的边界以用于逻辑分组。"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -61,9 +67,9 @@ if (!doNotTrack) {
 
 
 
-    <title>白皮书 | 云原生应用白皮书</title>
+    <title>ApplicationScope | 云原生应用白皮书</title>
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -132,7 +138,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/guide-to-cloud-native-app/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">白皮书</a>
+    <a  href="/guide-to-cloud-native-app/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">白皮书</a>
   </li>
   <ul>
     <li class="collapse show" id="guide-to-cloud-native-app-docs">
@@ -167,10 +173,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/guide-to-cloud-native-app/docs/spec/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">规范模型</a>
+    <a  href="/guide-to-cloud-native-app/docs/spec/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">规范模型</a>
   </li>
   <ul>
-    <li class="collapse " id="guide-to-cloud-native-app-docs-spec">
+    <li class="collapse show" id="guide-to-cloud-native-app-docs-spec">
       
       
       
@@ -195,7 +201,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-guide-to-cloud-native-app-docs-spec-application-scope" href="/guide-to-cloud-native-app/docs/spec/application-scope/">ApplicationScope</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-guide-to-cloud-native-app-docs-spec-application-scope" href="/guide-to-cloud-native-app/docs/spec/application-scope/">ApplicationScope</a>
       
       
       
@@ -233,8 +239,8 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e7%99%bd%e7%9a%ae%e4%b9%a6" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/spec/application-scope/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=ApplicationScope" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
 
 
 <a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
@@ -255,8 +261,28 @@ if (!doNotTrack) {
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+
+
+
+<li class="breadcrumb-item" >
 	<a href="/guide-to-cloud-native-app/docs/">白皮书</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/guide-to-cloud-native-app/docs/spec/">规范模型</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/guide-to-cloud-native-app/docs/spec/application-scope/">ApplicationScope</a>
 </li>
 
 	</ol>
@@ -265,73 +291,54 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>白皮书</h1>
+	<h1>ApplicationScope</h1>
+	<div class="lead"><code>ApplicationScope</code> 用于定义 <code>Component</code> 的边界以用于逻辑分组。</div>
 	
-	<p>云原生应用白皮书。</p>
 
-        <div class="section-index">
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/post-kubernetes-era/">Kubernetes 次世代的云原生应用</a>
-                    </h5>
-                    <p>Kubernetes 的次世代在于解决 Kubernetes 生态的碎片化问题。</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/roles/">角色与分工</a>
-                    </h5>
-                    <p>云原生应用中的人员角色及分工。</p>
-                </div>
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/cloud-native-app/">云原生应用的定义</a>
-                    </h5>
-                    <p>定义云原生应用的基本模型。</p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/spec/">规范模型</a>
-                    </h5>
-                    <p>基于 OAM 的云原生应用的规范模型。</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-        
-    
+<div class="pageinfo pageinfo-primary">
+<p>本文基于 OAM v1alpha2 版本。</p>
+
 </div>
+
+
+<p><code>ApplicationScope</code> 根据 <code>Component</code> 中的应用逻辑或共同行为划定作用域，将其分组以便于管理。</p>
+
+<p><code>ApplicationScope</code> 具有以下特征：</p>
+
+<ul>
+<li>一个 <code>Component</code> 可能属于一个或多个 <code>ApplicationScope</code>；</li>
+<li>有的 <code>ApplicationScope</code> 可以限定其中是否可以部署同一个 <code>Component</code> 的多个实例；</li>
+<li><code>ApplicationScope</code> 可以作为 <code>Component</code> 与基础设施的连接层，提供身份、网络或安全能力；</li>
+<li><code>Trait</code> 可以根据 <code>Component</code> 中定义的 <code>ApplicationScope</code> 来执行适当的运维特性；</li>
+</ul>
+
+<p>目前 OAM 中支持的核心应用范围类型有 <a href="https://github.com/oam-dev/spec/blob/master/standard/scopes/network_scope.md" target="_blank"><code>NetworkScope</code></a> 和 <a href="https://github.com/oam-dev/spec/blob/master/standard/scopes/health_scope.md" target="_blank"><code>HealthScope</code></a>。</p>
+
+<p>下面是使用 <code>NetworkScope</code> 来声明作用域的示例：</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>core.oam.dev/v1alpha2<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span>kind<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>NetworkScope<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span>metadata<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>name<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>my-network<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>labels<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>region<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>my-region<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>environment<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>production<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span>spec<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>networkId<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>my-network<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>subnetIds<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>-<span style="color:#f8f8f8;text-decoration:underline"> </span>my-subnetwork-<span style="color:#0000cf;font-weight:bold">01</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>-<span style="color:#f8f8f8;text-decoration:underline"> </span>my-subnetwork-<span style="color:#0000cf;font-weight:bold">02</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>-<span style="color:#f8f8f8;text-decoration:underline"> </span>my-subnetwork-<span style="color:#0000cf;font-weight:bold">03</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>internetGatewayType<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>nat</code></pre></div>
+<p>上面的示例的作用是将三个子网划定为一组网络边界，这通常是使用 VPC 实现。</p>
+
+<p>关于 <code>ApplicationScope</code> 的详细信息请参考 OAM 中的 <a href="https://github.com/oam-dev/spec/blob/master/5.application_scopes.md" target="_blank">ApplicationScope 规范</a>。</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">修改于 2020年5月25日: <a  href="https://github.com/rootsongjc/guide-to-cloud-native-app/commit/c8670838231762285a628c21d5d987d03414dce5">add the cloud native app white paper (c867083)</a>
 </div>
 </div>
+
 
           </main>
         </div>

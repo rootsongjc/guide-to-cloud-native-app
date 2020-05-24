@@ -7,7 +7,6 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="https://jimmysong.io/guide-to-cloud-native-app/docs/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,18 +20,25 @@
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-192x192.png" sizes="192x192">
 
-<title>白皮书 | 云原生应用白皮书</title><meta property="og:title" content="白皮书" />
-<meta property="og:description" content="Open APplication Model（开放应用模型）" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/" />
+<title>Component | 云原生应用白皮书</title><meta property="og:title" content="Component" />
+<meta property="og:description" content="`Component` 用于定义应用程序的基本组件。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/spec/component/" />
+<meta property="article:modified_time" content="2020-05-25T00:15:20&#43;08:00"/>
+
+<meta itemprop="name" content="Component">
+<meta itemprop="description" content="`Component` 用于定义应用程序的基本组件。">
 
 
-<meta itemprop="name" content="白皮书">
-<meta itemprop="description" content="Open APplication Model（开放应用模型）">
+<meta itemprop="dateModified" content="2020-05-25T00:15:20&#43;08:00" />
+<meta itemprop="wordCount" content="70">
 
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="白皮书"/>
-<meta name="twitter:description" content="Open APplication Model（开放应用模型）"/>
+<meta name="twitter:title" content="Component"/>
+<meta name="twitter:description" content="`Component` 用于定义应用程序的基本组件。"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -61,9 +67,9 @@ if (!doNotTrack) {
 
 
 
-    <title>白皮书 | 云原生应用白皮书</title>
+    <title>Component | 云原生应用白皮书</title>
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -132,7 +138,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/guide-to-cloud-native-app/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">白皮书</a>
+    <a  href="/guide-to-cloud-native-app/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">白皮书</a>
   </li>
   <ul>
     <li class="collapse show" id="guide-to-cloud-native-app-docs">
@@ -167,10 +173,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/guide-to-cloud-native-app/docs/spec/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">规范模型</a>
+    <a  href="/guide-to-cloud-native-app/docs/spec/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">规范模型</a>
   </li>
   <ul>
-    <li class="collapse " id="guide-to-cloud-native-app-docs-spec">
+    <li class="collapse show" id="guide-to-cloud-native-app-docs-spec">
       
       
       
@@ -183,7 +189,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-guide-to-cloud-native-app-docs-spec-component" href="/guide-to-cloud-native-app/docs/spec/component/">Component</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-guide-to-cloud-native-app-docs-spec-component" href="/guide-to-cloud-native-app/docs/spec/component/">Component</a>
       
       
       
@@ -233,8 +239,8 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e7%99%bd%e7%9a%ae%e4%b9%a6" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/spec/component/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=Component" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
 
 
 <a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
@@ -255,8 +261,28 @@ if (!doNotTrack) {
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+
+
+
+<li class="breadcrumb-item" >
 	<a href="/guide-to-cloud-native-app/docs/">白皮书</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item" >
+	<a href="/guide-to-cloud-native-app/docs/spec/">规范模型</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/guide-to-cloud-native-app/docs/spec/component/">Component</a>
 </li>
 
 	</ol>
@@ -265,73 +291,61 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>白皮书</h1>
+	<h1>Component</h1>
+	<div class="lead"><code>Component</code> 用于定义应用程序的基本组件。</div>
 	
-	<p>云原生应用白皮书。</p>
 
-        <div class="section-index">
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/post-kubernetes-era/">Kubernetes 次世代的云原生应用</a>
-                    </h5>
-                    <p>Kubernetes 的次世代在于解决 Kubernetes 生态的碎片化问题。</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/roles/">角色与分工</a>
-                    </h5>
-                    <p>云原生应用中的人员角色及分工。</p>
-                </div>
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/cloud-native-app/">云原生应用的定义</a>
-                    </h5>
-                    <p>定义云原生应用的基本模型。</p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/spec/">规范模型</a>
-                    </h5>
-                    <p>基于 OAM 的云原生应用的规范模型。</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-        
-    
+<div class="pageinfo pageinfo-primary">
+<p>本文基于 OAM v1alpha2 版本。</p>
+
 </div>
+
+
+<p><code>Component</code> 用于定义应用程序的基本组件，其中包含了对 Workload 的引用，一个 Component 中只能定义一个 Workload，这个 Workload 是与平台无关的，可以直接引用 Kubernetes 中的 CRD。</p>
+
+<p>下面是根据 OAM 规范定义的一个 Component 示例。</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>core.oam.dev/v1alpha2<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span>kind<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>Component<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span>metadata<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>name<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>my-component<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline"></span>spec<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>workload<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>apiVersion<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>core.oam.dev/v1alpha2<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>kind<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>ContainerizedWorkload<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>spec<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>os<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>linux<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">      </span>containers<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">        </span>-<span style="color:#f8f8f8;text-decoration:underline"> </span>name<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>server<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">          </span>image<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>my-image<span style="color:#000;font-weight:bold">:</span>latest<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>parameters<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">  </span>-<span style="color:#f8f8f8;text-decoration:underline"> </span>name<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>myServerImage<span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>required<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>fieldPaths<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
+</span><span style="color:#f8f8f8;text-decoration:underline">    </span>-<span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#4e9a06">&#34;.spec.containers[0].image&#34;</span></code></pre></div>
+<p><code>Component</code>  定义由以下几个部分组成：</p>
+
+<ul>
+<li><code>metadata</code>：关于 Component 的信息，主要是针对应用运维的信息。</li>
+<li><code>workload</code>：该 Component 的实际工作负载。具体有哪些负载类型可用可以咨询平台提供商，平台运维也可以根据 <a href="https://github.com/oam-dev/spec/blob/master/3.workload.md" target="_blank">Workload 规范</a> 来扩展负载类型，比如 <code>Containers</code>、<code>Functions</code>、<code>VirtualMachine</code>、<a href="https://istio.io/docs/reference/config/networking/virtual-service/" target="_blank"><code>VirtualService</code></a> 等。OAM 目前定义的核心负载类型有 <a href="https://github.com/oam-dev/spec/blob/master/core/workloads/containerized_workload/containerized_workload.md" target="_blank">ContainerizedWorkload</a>（与 Kubernetes 中的 <a href="https://kubernetes.io/zh/docs/concepts/workloads/pods/pod/" target="_blank">Pod 定义</a>类似，同样支持定义多个容器，但是缺少了 Pod 中的一些属性 ）。</li>
+<li><code>parameters</code>：在应用程序运行时可以调整的参数，即应用开发者在 <code>Component</code> 中的原有定义可以在运行时被应用运维人员覆盖。<code>parameters</code> 使用 <a href="https://kubernetes.io/zh/docs/reference/kubectl/jsonpath/" target="_blank">JSONPath</a> 的方式引用 <code>spec</code> 中的字段。</li>
+</ul>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Component 是可变的</h4>
+<code>Component</code> 的配置在应用后是<strong>可更改的（Mutable）</strong>， 有的 <a href="../trait"><code>Trait</code></a> 可能会监听 <code>Component</code> 的变更并作出相应的操作，每次变更都会导致新的 <code>ApplicationConfiguration</code> 发布。
+</div>
+
+
+<p>关于 Component 的详细信息请参考 OAM 中的 <a href="https://github.com/oam-dev/spec/blob/master/4.component.md" target="_blank">Component 规范</a>。</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">修改于 2020年5月25日: <a  href="https://github.com/rootsongjc/guide-to-cloud-native-app/commit/c8670838231762285a628c21d5d987d03414dce5">add the cloud native app white paper (c867083)</a>
 </div>
 </div>
+
 
           </main>
         </div>

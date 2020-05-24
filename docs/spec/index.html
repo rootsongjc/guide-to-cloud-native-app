@@ -7,7 +7,7 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="https://jimmysong.io/guide-to-cloud-native-app/docs/index.xml">
+<link rel="alternate" type="application/rss&#43;xml" href="https://jimmysong.io/guide-to-cloud-native-app/docs/spec/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,18 +21,18 @@
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-192x192.png" sizes="192x192">
 
-<title>白皮书 | 云原生应用白皮书</title><meta property="og:title" content="白皮书" />
-<meta property="og:description" content="Open APplication Model（开放应用模型）" />
+<title>规范模型 | 云原生应用白皮书</title><meta property="og:title" content="规范模型" />
+<meta property="og:description" content=" 基于 OAM 的云原生应用的规范模型。" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/" />
+<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/spec/" />
 
 
-<meta itemprop="name" content="白皮书">
-<meta itemprop="description" content="Open APplication Model（开放应用模型）">
+<meta itemprop="name" content="规范模型">
+<meta itemprop="description" content=" 基于 OAM 的云原生应用的规范模型。">
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="白皮书"/>
-<meta name="twitter:description" content="Open APplication Model（开放应用模型）"/>
+<meta name="twitter:title" content="规范模型"/>
+<meta name="twitter:description" content=" 基于 OAM 的云原生应用的规范模型。"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -61,7 +61,7 @@ if (!doNotTrack) {
 
 
 
-    <title>白皮书 | 云原生应用白皮书</title>
+    <title>规范模型 | 云原生应用白皮书</title>
   </head>
   <body class="td-section">
     <header>
@@ -132,7 +132,7 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/guide-to-cloud-native-app/docs/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">白皮书</a>
+    <a  href="/guide-to-cloud-native-app/docs/" class="align-left pl-0 pr-2 td-sidebar-link td-sidebar-link__section">白皮书</a>
   </li>
   <ul>
     <li class="collapse show" id="guide-to-cloud-native-app-docs">
@@ -167,10 +167,10 @@ if (!doNotTrack) {
 
 <ul class="td-sidebar-nav__section pr-md-3">
   <li class="td-sidebar-nav__section-title">
-    <a  href="/guide-to-cloud-native-app/docs/spec/" class="align-left pl-0 pr-2 collapsed td-sidebar-link td-sidebar-link__section">规范模型</a>
+    <a  href="/guide-to-cloud-native-app/docs/spec/" class="align-left pl-0 pr-2 active td-sidebar-link td-sidebar-link__section">规范模型</a>
   </li>
   <ul>
-    <li class="collapse " id="guide-to-cloud-native-app-docs-spec">
+    <li class="collapse show" id="guide-to-cloud-native-app-docs-spec">
       
       
       
@@ -233,8 +233,8 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e7%99%bd%e7%9a%ae%e4%b9%a6" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/spec/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e8%a7%84%e8%8c%83%e6%a8%a1%e5%9e%8b" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
 
 
 <a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
@@ -255,8 +255,18 @@ if (!doNotTrack) {
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+<li class="breadcrumb-item" >
 	<a href="/guide-to-cloud-native-app/docs/">白皮书</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/guide-to-cloud-native-app/docs/spec/">规范模型</a>
 </li>
 
 	</ol>
@@ -265,9 +275,23 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>白皮书</h1>
-	
-	<p>云原生应用白皮书。</p>
+	<h1>规范模型</h1>
+	<div class="lead">基于 OAM 的云原生应用的规范模型。</div>
+	<p>OAM 规范的设计遵循了以下<a href="https://github.com/oam-dev/spec/blob/master/9.design_principles.md" target="_blank">原则</a>：</p>
+
+<ul>
+<li>关注点分离：根据功能和行为来定义模型，以此划分不同角色的职责，</li>
+<li>平台中立：OAM 的实现不绑定到特定平台；</li>
+<li>优雅：尽量减少设计复杂性；</li>
+<li>复用性：可移植性好，同一个应用程序可以在不同的平台上不加改动地执行；</li>
+<li>不作为编程模型：OAM 提供的是应用程序模型，描述了应用程序的组成和组件的拓扑结构，而不关注应用程序的具体实现。</li>
+</ul>
+
+<p>下图是 OAM 规范示意图。</p>
+
+<p><img src="oam-spec.png" alt="OAM 规范示意图" /></p>
+
+<p>图片来自 <a href="https://github.com/oam-dev/spec/issues/346" target="_blank">oam/spec issue #346</a>。</p>
 
         <div class="section-index">
     
@@ -277,11 +301,33 @@ if (!doNotTrack) {
     <hr class="panel-line">
         
             
+        
+            
                 <div class="entry">
                     <h5>
-                        <a href="/guide-to-cloud-native-app/docs/post-kubernetes-era/">Kubernetes 次世代的云原生应用</a>
+                        <a href="/guide-to-cloud-native-app/docs/spec/workload/">Workload</a>
                     </h5>
-                    <p>Kubernetes 的次世代在于解决 Kubernetes 生态的碎片化问题。</p>
+                    <p><code>Workload</code> 用于定义工作负载的类型。</p>
+                </div>
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/guide-to-cloud-native-app/docs/spec/component/">Component</a>
+                    </h5>
+                    <p><code>Component</code> 用于定义应用程序的基本组件。</p>
+                </div>
+            
+        
+            
+        
+            
+                <div class="entry">
+                    <h5>
+                        <a href="/guide-to-cloud-native-app/docs/spec/trait/">Trait</a>
+                    </h5>
+                    <p><code>Trait</code> 用于定义 <code>Component</code> 的运维属性。</p>
                 </div>
             
         
@@ -292,34 +338,19 @@ if (!doNotTrack) {
             
                 <div class="entry">
                     <h5>
-                        <a href="/guide-to-cloud-native-app/docs/roles/">角色与分工</a>
+                        <a href="/guide-to-cloud-native-app/docs/spec/application-scope/">ApplicationScope</a>
                     </h5>
-                    <p>云原生应用中的人员角色及分工。</p>
-                </div>
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/cloud-native-app/">云原生应用的定义</a>
-                    </h5>
-                    <p>定义云原生应用的基本模型。</p>
+                    <p><code>ApplicationScope</code> 用于定义 <code>Component</code> 的边界以用于逻辑分组。</p>
                 </div>
             
         
             
                 <div class="entry">
                     <h5>
-                        <a href="/guide-to-cloud-native-app/docs/spec/">规范模型</a>
+                        <a href="/guide-to-cloud-native-app/docs/spec/application-configuration/">ApplicationConfiguration</a>
                     </h5>
-                    <p>基于 OAM 的云原生应用的规范模型。</p>
+                    <p><code>ApplicationConfiguration</code> 将 <code>Component</code> 和 <code>Trait</code> 组合成完整的应用程序。</p>
                 </div>
-            
-        
-            
-        
             
         
             

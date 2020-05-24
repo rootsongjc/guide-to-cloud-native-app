@@ -7,7 +7,6 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="https://jimmysong.io/guide-to-cloud-native-app/docs/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,18 +20,25 @@
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-192x192.png" sizes="192x192">
 
-<title>白皮书 | 云原生应用白皮书</title><meta property="og:title" content="白皮书" />
-<meta property="og:description" content="Open APplication Model（开放应用模型）" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/" />
+<title>云原生应用的定义 | 云原生应用白皮书</title><meta property="og:title" content="云原生应用的定义" />
+<meta property="og:description" content="定义云原生应用的基本模型。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/cloud-native-app/" />
+<meta property="article:modified_time" content="2020-05-25T00:15:20&#43;08:00"/>
+
+<meta itemprop="name" content="云原生应用的定义">
+<meta itemprop="description" content="定义云原生应用的基本模型。">
 
 
-<meta itemprop="name" content="白皮书">
-<meta itemprop="description" content="Open APplication Model（开放应用模型）">
+<meta itemprop="dateModified" content="2020-05-25T00:15:20&#43;08:00" />
+<meta itemprop="wordCount" content="59">
 
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="白皮书"/>
-<meta name="twitter:description" content="Open APplication Model（开放应用模型）"/>
+<meta name="twitter:title" content="云原生应用的定义"/>
+<meta name="twitter:description" content="定义云原生应用的基本模型。"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -61,9 +67,9 @@ if (!doNotTrack) {
 
 
 
-    <title>白皮书 | 云原生应用白皮书</title>
+    <title>云原生应用的定义 | 云原生应用白皮书</title>
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -154,7 +160,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-guide-to-cloud-native-app-docs-cloud-native-app" href="/guide-to-cloud-native-app/docs/cloud-native-app/">云原生应用的定义</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-guide-to-cloud-native-app-docs-cloud-native-app" href="/guide-to-cloud-native-app/docs/cloud-native-app/">云原生应用的定义</a>
       
       
       
@@ -233,8 +239,8 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e7%99%bd%e7%9a%ae%e4%b9%a6" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/cloud-native-app/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e4%ba%91%e5%8e%9f%e7%94%9f%e5%ba%94%e7%94%a8%e7%9a%84%e5%ae%9a%e4%b9%89" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
 
 
 <a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
@@ -243,6 +249,19 @@ if (!doNotTrack) {
 
 
 
+
+
+
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#云原生应用模型">云原生应用模型</a></li>
+<li><a href="#关注点分离">关注点分离</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav>
 
 
 
@@ -255,8 +274,18 @@ if (!doNotTrack) {
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+<li class="breadcrumb-item" >
 	<a href="/guide-to-cloud-native-app/docs/">白皮书</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/guide-to-cloud-native-app/docs/cloud-native-app/">云原生应用的定义</a>
 </li>
 
 	</ol>
@@ -265,73 +294,67 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>白皮书</h1>
+	<h1>云原生应用的定义</h1>
+	<div class="lead">定义云原生应用的基本模型。</div>
 	
-	<p>云原生应用白皮书。</p>
 
-        <div class="section-index">
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/post-kubernetes-era/">Kubernetes 次世代的云原生应用</a>
-                    </h5>
-                    <p>Kubernetes 的次世代在于解决 Kubernetes 生态的碎片化问题。</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/roles/">角色与分工</a>
-                    </h5>
-                    <p>云原生应用中的人员角色及分工。</p>
-                </div>
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/cloud-native-app/">云原生应用的定义</a>
-                    </h5>
-                    <p>定义云原生应用的基本模型。</p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/spec/">规范模型</a>
-                    </h5>
-                    <p>基于 OAM 的云原生应用的规范模型。</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-        
-    
+
+
+<div class="pageinfo pageinfo-primary">
+<p>本文参考的是 <a href="https://github.com/oam-dev/spec" target="_blank">OAM 规范</a>中对云原生应用的定义，并做出了引申。</p>
+
 </div>
+
+
+<p>云原生应用是一个相互关联但又不独立的组件（service、task、worker）的集合，这些组件与配置结合在一起并在适当的运行时实例化后，共同完成统一的功能目的。</p>
+
+<h2 id="云原生应用模型">云原生应用模型</h2>
+
+<p>下图是 OAM 定义的云原生应用模型示意图，为了便于理解，图中相同颜色的部分为同一类别的对象定义。</p>
+
+<p><img src="cloud-native-app-model.png" alt="云原生应用模型" /></p>
+
+<p>OAM 的规范中定义了以下对象，它们既是 OAM 规范中的基本术语也是云原生应用的基本组成。</p>
+
+<ul>
+<li><strong><a href="../spec/workload">Workload</a>（工作负载）</strong>：应用程序的工作负载类型，由平台提供。</li>
+<li><strong><a href="../spec/component">Component</a>（组件）</strong>：定义了一个 <code>Workload</code> 的实例，并以基础设施中立的术语声明其运维特性。</li>
+<li><strong><a href="../spec/trait">Trait</a>（特征）</strong>：用于将运维特性分配给组件实例。</li>
+<li><strong><a href="../spec/application-scope">ApplicationScope</a>（应用作用域）</strong>：用于将组件分组成具有共同特性的松散耦合的应用。</li>
+<li><strong><a href="../spec/application-configuration">ApplicationConfiguration</a>（应用配置）</strong>：描述 <code>Component</code> 的部署、<code>Trait</code> 和 <code>ApplicationScope</code>。</li>
+</ul>
+
+<p>OAM 规范中提供了一个使用以上对象定义云原生应用的<a href="https://github.com/oam-dev/spec/blob/master/examples/workflow.md" target="_blank">工作流示例</a>。</p>
+
+<h2 id="关注点分离">关注点分离</h2>
+
+<p>下图是不同角色对于该模型的关注点示意图。</p>
+
+<p><img src="roles.png" alt="云原生应用模型中的目标角色" /></p>
+
+<p>我们可以看到对于一个云原生应用来说，不同的对象是由不同的角色来负责的：</p>
+
+<ul>
+<li>基础设施运维：提供不同的 <code>Workload</code> 类型供开发者使用；</li>
+<li>应用运维：定义适用于不同 <code>Workload</code> 的运维属性 <code>Trait</code> 和管理 <code>Component</code> 的 <code>ApplicationScope</code> 即作用域；</li>
+<li>应用开发者：负责应用组件 <code>Component</code> 的定义；</li>
+<li>应用开发者和运维：共同将 <code>Component</code> 与运维属性 <code>Trait</code> 绑定在一起，维护应用程序的生命周期；</li>
+</ul>
+
+<p>基于 OAM 中的对象定义的云原生应用可以充分利用平台能力自由组合，开发者和运维人员的职责可以得到有效分离，组件的复用性得到大幅提高。</p>
+
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><a href="https://github.com/oam-dev/spec" target="_blank">The Open Application Model specification - github.com</a></li>
+</ul>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">修改于 2020年5月25日: <a  href="https://github.com/rootsongjc/guide-to-cloud-native-app/commit/c8670838231762285a628c21d5d987d03414dce5">add the cloud native app white paper (c867083)</a>
 </div>
 </div>
+
 
           </main>
         </div>

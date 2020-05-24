@@ -7,7 +7,6 @@
 
 <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 
-<link rel="alternate" type="application/rss&#43;xml" href="https://jimmysong.io/guide-to-cloud-native-app/docs/index.xml">
 
 
 <link rel="shortcut icon" href="/favicons/favicon.ico" >
@@ -21,18 +20,25 @@
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/guide-to-cloud-native-app/favicons/android-192x192.png" sizes="192x192">
 
-<title>白皮书 | 云原生应用白皮书</title><meta property="og:title" content="白皮书" />
-<meta property="og:description" content="Open APplication Model（开放应用模型）" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/" />
+<title>角色与分工 | 云原生应用白皮书</title><meta property="og:title" content="角色与分工" />
+<meta property="og:description" content="云原生应用中的人员角色及分工。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jimmysong.io/guide-to-cloud-native-app/docs/roles/" />
+<meta property="article:modified_time" content="2020-05-25T00:15:20&#43;08:00"/>
+
+<meta itemprop="name" content="角色与分工">
+<meta itemprop="description" content="云原生应用中的人员角色及分工。">
 
 
-<meta itemprop="name" content="白皮书">
-<meta itemprop="description" content="Open APplication Model（开放应用模型）">
+<meta itemprop="dateModified" content="2020-05-25T00:15:20&#43;08:00" />
+<meta itemprop="wordCount" content="24">
 
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="白皮书"/>
-<meta name="twitter:description" content="Open APplication Model（开放应用模型）"/>
+<meta name="twitter:title" content="角色与分工"/>
+<meta name="twitter:description" content="云原生应用中的人员角色及分工。"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -61,9 +67,9 @@ if (!doNotTrack) {
 
 
 
-    <title>白皮书 | 云原生应用白皮书</title>
+    <title>角色与分工 | 云原生应用白皮书</title>
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand navbar-dark flex-column flex-md-row td-navbar">
@@ -148,7 +154,7 @@ if (!doNotTrack) {
       
       
       
-      <a class="td-sidebar-link td-sidebar-link__page " id="m-guide-to-cloud-native-app-docs-roles" href="/guide-to-cloud-native-app/docs/roles/">角色与分工</a>
+      <a class="td-sidebar-link td-sidebar-link__page  active" id="m-guide-to-cloud-native-app-docs-roles" href="/guide-to-cloud-native-app/docs/roles/">角色与分工</a>
       
       
       
@@ -233,8 +239,8 @@ if (!doNotTrack) {
 
 
 
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/_index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
-<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e7%99%bd%e7%9a%ae%e4%b9%a6" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/edit/master/content/zh/docs/roles/index.md" target="_blank"><i class="fa fa-edit fa-fw"></i> 编辑本页</a>
+<a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new?title=%e8%a7%92%e8%89%b2%e4%b8%8e%e5%88%86%e5%b7%a5" target="_blank"><i class="fab fa-github fa-fw"></i> 创建文档 issue</a>
 
 
 <a href="https://github.com/rootsongjc/guide-to-cloud-native-app/issues/new" target="_blank"><i class="fas fa-tasks fa-fw"></i> 创建项目 issue</a>
@@ -243,6 +249,20 @@ if (!doNotTrack) {
 
 
 
+
+
+
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#应用开发者">应用开发者</a></li>
+<li><a href="#应用运维">应用运维</a></li>
+<li><a href="#基础设施运维">基础设施运维</a></li>
+<li><a href="#关系">关系</a></li>
+</ul></li>
+</ul>
+</nav>
 
 
 
@@ -255,8 +275,18 @@ if (!doNotTrack) {
 
 
 
-<li class="breadcrumb-item active" aria-current="page">
+
+
+
+<li class="breadcrumb-item" >
 	<a href="/guide-to-cloud-native-app/docs/">白皮书</a>
+</li>
+
+
+
+
+<li class="breadcrumb-item active" aria-current="page">
+	<a href="/guide-to-cloud-native-app/docs/roles/">角色与分工</a>
 </li>
 
 	</ol>
@@ -265,73 +295,48 @@ if (!doNotTrack) {
 
             
 <div class="td-content">
-	<h1>白皮书</h1>
+	<h1>角色与分工</h1>
+	<div class="lead">云原生应用中的人员角色及分工。</div>
 	
-	<p>云原生应用白皮书。</p>
 
-        <div class="section-index">
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/post-kubernetes-era/">Kubernetes 次世代的云原生应用</a>
-                    </h5>
-                    <p>Kubernetes 的次世代在于解决 Kubernetes 生态的碎片化问题。</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/roles/">角色与分工</a>
-                    </h5>
-                    <p>云原生应用中的人员角色及分工。</p>
-                </div>
-            
-        
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/cloud-native-app/">云原生应用的定义</a>
-                    </h5>
-                    <p>定义云原生应用的基本模型。</p>
-                </div>
-            
-        
-            
-                <div class="entry">
-                    <h5>
-                        <a href="/guide-to-cloud-native-app/docs/spec/">规范模型</a>
-                    </h5>
-                    <p>基于 OAM 的云原生应用的规范模型。</p>
-                </div>
-            
-        
-            
-        
-            
-        
-            
-        
-    
-</div>
+<p>云原生应用在诞生之初就是面向云而设计，适应云环境，为了在云上运行而开发的应用，既然是应用就涉及到生命周期管理，在一个云原生应用的生命周期中，存在以下几种角色，如下图所示。</p>
+
+<p><img src="roles.png" alt="云原生应用中的角色" /></p>
+
+<p>三者之间不是完全独立，而是互有交集。</p>
+
+<ul>
+<li>应用开发者：关注的是代码，对应用的生命周期负责，需要了解业务逻辑。</li>
+<li>应用运维：维护应用平台，负责管理应用的生命周期管，需要具有应用的领域知识。</li>
+<li>基础设施运维：维护计算、存储和网络资源，需要具有底层系统的知识。</li>
+</ul>
+
+<p>下面将分别阐述这三种角色之间的区别和联系。</p>
+
+<h2 id="应用开发者">应用开发者</h2>
+
+<p>应用开发者负责编写代码，实现应用程序的业务逻辑和数据的处理，是应用程序的拥有者、负责人。底层的计算、存储、网络的复杂性全部通过编程语言层面给屏蔽掉了，比如开发者需要发起远程过程调用（RPC），只需要指定对应的协议，调用相应的接口，传递符合规范的数据即可，而不需要自己去实现一个协议。</p>
+
+<p>注意这里之所以在开发者前面加上了”应用“两个字，是为了强调这部分开发者是面向业务的开发者，而非基础设施、中间件或者平台开发者，虽然他们本质上都是开发者，但是面向的对象不同。应用开发者负责生产应用程序，并负责它的升级换代，但是对于应用生产出来后如何维护，就要交给应用运维了。</p>
+
+<h2 id="应用运维">应用运维</h2>
+
+<p>应用运维人员通常基于 PaaS 平台为应用程序提供运行时所需的资源或能力，负责管理应用程序的生命周期，更加关注应用交付，如应用的构建、打包、编排、调度、发布、升级、回滚、配置、备份等，这些操作通常与开发者要运行的应用程序的本身逻辑无关。当需要为某些类型的应用提供平台层能力的时候，应用运维还需要具有这些应用所处领域的专业知识。比如数据科学家需要使用的大数据集群，这些集群通常会有专人来维护，这些人可能不会直接参与底层基础设施的建设，而是负责在 PaaS 平台上维护这套集群。但是对于一些简单的 web 应用，应用运维的角色有时候也会由开发者兼任，也就是 DevOps。</p>
+
+<h2 id="基础设施运维">基础设施运维</h2>
+
+<p>基础设施运维可能是管理公有云中的资源（虚拟机或容器），也可能直接管理底层的物理资源，他们不必了解这些资源上具体运行的是什么应用，也不需要相关领域的背景知识，在他们眼里一切皆为资源（计算、存储、网络），他们需要负责基础设施的稳定性，资源的利用率，账号的权限管理等。</p>
+
+<h2 id="关系">关系</h2>
+
+<p>这三个角色不是孤立存在的，他们之间存在很多交集，其中应用运维是将开发者与程序运行资源、环境串联起来的关键，这个角色部分职能可以由 PaaS 平台来完成。</p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">修改于 2020年5月25日: <a  href="https://github.com/rootsongjc/guide-to-cloud-native-app/commit/c8670838231762285a628c21d5d987d03414dce5">add the cloud native app white paper (c867083)</a>
 </div>
 </div>
+
 
           </main>
         </div>
