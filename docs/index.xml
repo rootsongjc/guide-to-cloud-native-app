@@ -119,7 +119,7 @@
 
 &lt;p&gt;云原生应用落实到 Kubernetes 平台之上，仅仅利用 Kubernetes 的对象原语已很难描述一个复杂的应用程序，所以诞生了各种各样的 Operator，但这也仅仅解决了单个应用的定义，对于应用的打包封装则无能为力。&lt;/p&gt;
 
-&lt;p&gt;同一个资源对象又有多种实现方式，比如 Ingress 就有 &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1DnsHtdHbxjvHmxvlu7VhzWcWgLAn_Mc5L1WlhLDA__k/edit#gid=0&#34; target=&#34;_blank&#34;&gt;10 多种实现&lt;/a&gt;，PV 就更不用说，对于对于开发者究竟如何选择，平台如何管理，这都是让人很头疼的问题。而且有时候平台所提供的扩展能力还可能会有冲突，这些能力有的可能互不相干，有的可能会有正交，有的可能完全重合。且应用本身与运维特性之间存在太多耦合，不便于复用。&lt;/p&gt;
+&lt;p&gt;同一个资源对象又有多种实现方式，比如 Ingress 就有 &lt;a href=&#34;https://docs.google.com/spreadsheets/d/1DnsHtdHbxjvHmxvlu7VhzWcWgLAn_Mc5L1WlhLDA__k/edit#gid=0&#34; target=&#34;_blank&#34;&gt;10 多种实现&lt;/a&gt;，PV 就更不用说，对于开发者究竟如何选择，平台如何管理，这都是让人很头疼的问题。而且有时候平台所提供的扩展能力还可能会有冲突，这些能力有的可能互不相干，有的可能会有正交，有的可能完全重合。且应用本身与运维特性之间存在太多耦合，不便于复用。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;resources-motion.gif&#34; alt=&#34;资源交集动画&#34; /&gt;&lt;/p&gt;
 
