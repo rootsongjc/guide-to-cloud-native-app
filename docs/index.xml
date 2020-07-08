@@ -83,9 +83,7 @@
 
 &lt;p&gt;根据声明式 API 可以做应用编排，定义组件间的依赖，通常使用人类易读的 YAML 文件来表示。但是，YAML 文件声明的字段真的就是最终的状态吗？有没有可能动态改变？&lt;/p&gt;
 
-&lt;p&gt;我们在创建 &lt;code&gt;Deployment&lt;/code&gt; 时会指定 Pod 的副本数，但是其实际副本数并不一定是一成不变的。假如集群中还有定义 HPA，那么 Pod 的副本数就可能随着一些外界因素（比如内存、CPU 使用率或者自定义 metric）而改变，而且如果集群中还有运行自定义的控制器话，那么也有可能修改应用的实例数量。在有多个控制器同时控制某个资源对象时，如何确保控制器之间不会发生冲突，资源对象的状态可预期？&lt;/p&gt;
-
-&lt;p&gt;一个办法是使用&lt;a href=&#34;https://kubernetes.io/zh/docs/reference/access-authn-authz/extensible-admission-controllers/#monitoring-admission-webhooks&#34; target=&#34;_blank&#34;&gt;动态准入控制&lt;/a&gt;，&lt;/p&gt;
+&lt;p&gt;我们在创建 &lt;code&gt;Deployment&lt;/code&gt; 时会指定 Pod 的副本数，但是其实际副本数并不一定是一成不变的。假如集群中还有定义 HPA，那么 Pod 的副本数就可能随着一些外界因素（比如内存、CPU 使用率或者自定义 metric）而改变，而且如果集群中还有运行自定义的控制器话，那么也有可能修改应用的实例数量。在有多个控制器同时控制某个资源对象时，如何确保控制器之间不会发生冲突，资源对象的状态可预期？可使用&lt;a href=&#34;https://kubernetes.io/zh/docs/reference/access-authn-authz/extensible-admission-controllers/#monitoring-admission-webhooks&#34; target=&#34;_blank&#34;&gt;动态准入控制&lt;/a&gt;来达到这一点。&lt;/p&gt;
 
 &lt;h3 id=&#34;kubernetes-原生应用&#34;&gt;Kubernetes 原生应用&lt;/h3&gt;
 
@@ -115,7 +113,7 @@
 &lt;li&gt;&lt;strong&gt;资源层&lt;/strong&gt;：提供网络、存储和其他平台资源；&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;而这些不同的层，完全可以将其职责分配给相应的人员，比如核心层是由应用程序开发者负责，将其职责分离，可以很大程度上降低&lt;/p&gt;
+&lt;p&gt;而这些不同的层，完全可以将其职责分配给相应的人员，比如核心层是由应用程序开发者负责，将其职责分离，可以很大程度上降低开发和运维的复杂度。&lt;/p&gt;
 
 &lt;p&gt;云原生应用落实到 Kubernetes 平台之上，仅仅利用 Kubernetes 的对象原语已很难描述一个复杂的应用程序，所以诞生了各种各样的 Operator，但这也仅仅解决了单个应用的定义，对于应用的打包封装则无能为力。&lt;/p&gt;
 
