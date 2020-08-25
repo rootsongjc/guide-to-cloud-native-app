@@ -587,7 +587,7 @@ CR 即 Custom Resource（自定义资源），指的是实例化后的 Kubernete
 &lt;li&gt;基础设施运维：提供不同的 &lt;code&gt;Workload&lt;/code&gt; 类型供开发者使用；&lt;/li&gt;
 &lt;li&gt;应用运维：定义适用于不同 &lt;code&gt;Workload&lt;/code&gt; 的运维属性 &lt;code&gt;Trait&lt;/code&gt; 和管理 &lt;code&gt;Component&lt;/code&gt; 的 &lt;code&gt;ApplicationScope&lt;/code&gt; 即作用域；&lt;/li&gt;
 &lt;li&gt;应用开发者：负责应用组件 &lt;code&gt;Component&lt;/code&gt; 的定义；&lt;/li&gt;
-&lt;li&gt;应用开发者和运维：共同将 &lt;code&gt;Component&lt;/code&gt; 与运维属性 &lt;code&gt;Trait&lt;/code&gt; 绑定在一起，维护应用程序的生命周期；&lt;/li&gt;
+&lt;li&gt;应用开发者和运维：共同将 &lt;code&gt;Component&lt;/code&gt; 与运维属性 &lt;code&gt;Trait&lt;/code&gt; 绑定在一起，维护应用程序的生命周期。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;基于 OAM 中的对象定义的云原生应用可以充分利用平台能力自由组合，开发者和运维人员的职责可以得到有效分离，组件的复用性得到大幅提高。&lt;/p&gt;
