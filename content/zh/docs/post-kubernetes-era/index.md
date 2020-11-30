@@ -31,7 +31,7 @@ Kubernetes 从开源至今已经走过快[六个年头](https://jimmysong.io/clo
 
 **第三阶段：野蛮生长期（2017 年 - 2018 年）**
 
-2106 年之后的云原生基本都默认运行在 Kubernetes 平台上，2017、2018 年 Google 主导的 Istio、Knative 相继开源，这些开源项目都大量利用了 Kubernetes 的 Operator 进行了扩展，Istio 刚发布时就有 50 多个 CRD 定义。Istio 号称是[后 Kubernetes 时代的微服务](https://jimmysong.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/)，它的出现第一次使得云原生以服务（应用）为中心。Knative 是 Google 在基于 Kubernetes 之上开源的 Serverless 领域的一次尝试。2018 年 Kubernetes 正式从 CNCF [毕业](https://www.cncf.io/blog/2018/03/06/kubernetes-first-cncf-project-graduate/)，Prometheus、Envoy 也陆续从 CNCF 毕业。CNCF 也与 2018 年修改了 charter，对云原生进行了重定义，从原来的三要素：”应用容器化；面向微服务架构；应用支持容器的编排调度“，修改为”云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。云原生的代表技术包括容器、服务网格、微服务、不可变基础设施和声明式API“。这一年，我曾写过两篇 Kubernetes 及云原生发展的年终总结和展望，见 [2017 年](https://jimmysong.io/kubernetes-handbook/appendix/kubernetes-and-cloud-native-summary-in-2017-and-outlook-for-2018.html)和 [2018 年](https://jimmysong.io/kubernetes-handbook/appendix/kubernetes-and-cloud-native-summary-in-2018-and-outlook-for-2019.html)的预测和总结。
+2016 年之后的云原生基本都默认运行在 Kubernetes 平台上，2017、2018 年 Google 主导的 Istio、Knative 相继开源，这些开源项目都大量利用了 Kubernetes 的 Operator 进行了扩展，Istio 刚发布时就有 50 多个 CRD 定义。Istio 号称是[后 Kubernetes 时代的微服务](https://jimmysong.io/blog/service-mesh-the-microservices-in-post-kubernetes-era/)，它的出现第一次使得云原生以服务（应用）为中心。Knative 是 Google 在基于 Kubernetes 之上开源的 Serverless 领域的一次尝试。2018 年 Kubernetes 正式从 CNCF [毕业](https://www.cncf.io/blog/2018/03/06/kubernetes-first-cncf-project-graduate/)，Prometheus、Envoy 也陆续从 CNCF 毕业。CNCF 也与 2018 年修改了 charter，对云原生进行了重定义，从原来的三要素：”应用容器化；面向微服务架构；应用支持容器的编排调度“，修改为”云原生技术有利于各组织在公有云、私有云和混合云等新型动态环境中，构建和运行可弹性扩展的应用。云原生的代表技术包括容器、服务网格、微服务、不可变基础设施和声明式API“。这一年，我曾写过两篇 Kubernetes 及云原生发展的年终总结和展望，见 [2017 年](https://jimmysong.io/kubernetes-handbook/appendix/kubernetes-and-cloud-native-summary-in-2017-and-outlook-for-2018.html)和 [2018 年](https://jimmysong.io/kubernetes-handbook/appendix/kubernetes-and-cloud-native-summary-in-2018-and-outlook-for-2019.html)的预测和总结。
 
 **第四阶段：普及推广期（2019 年至今）**
 
@@ -219,14 +219,14 @@ Platform/Kuberntes，Kubernetes 仅仅是屏蔽了平台的一些差异，但是
 
 - 所有应用是都以容器作为运行时环境（ContainerizedWorkload），这是 OAM 中的核心 Workload 类型；
 - 在应用发布和上线方面，有些是属于应用的运维特征，需要根据实际需求组合和变更，这些是持续变动的部分；
-- 要实现某些复杂的应用管控，需要使用到多个 CRD 的组合，比如 Istio 中的让流量根据白分比切分到不同的而服务，就需要部署 Istio Operator，并声明 `VirtualService`、`DestinationRule`，二者同时使用；
+- 要实现某些复杂的应用管控，需要使用到多个 CRD 的组合，比如 Istio 中的让流量根据百分比切分到不同的而服务，就需要部署 Istio Operator，并声明 `VirtualService`、`DestinationRule`，二者同时使用；
 
 一个 `ApplicationConfiguration` 的 Runtime 的正常流程应该是：
 
 - 应用开发者创建自己的 `Component`，在 `Component` 中描述要应用相关的信息，如应用名称、镜像配置、环境变量等，应用到 Kubernetes cluster 中；
 - 运维创建各种运维策略，如发布策略、网络策略等等，发布时由 AppConfig 对象关联要发布的 `Component` 和本次的运维策略，apply 到集群中，集群的 OAM operator watch 到一次 `ApplicationConfiguration`的下发，生成 `Component` 对应的 `Workload` 和 `Trait`，`Trait` controller 将本次的 `Trait` 策略应用到本次要管理的 `Workload` 当中，最终到达终态，完成一次发布。
 
-OAM 是对 Kubernetes 友好的，一样采用声明式 API 的理念开发。如果你已经编写了现成的 CRD Operator，可以平滑的接入到 OAM 体系中。OAM 以应用为中心，高度可扩展，扩展点包括：
+OAM 是对 Kubernetes 友好的，一样采用声明式 API 的理念开发。如果你已经编写了现成的 CRD Operator，可以平滑地接入到 OAM 体系中。OAM 以应用为中心，高度可扩展，扩展点包括：
 
 - Workload：扩展各种运行时类型，不仅限于容器运行时，还可以定义更多其他运行时，比如 Serverless 负载、虚拟机、数据库、网络等；例如，Pod、无服务器函数、数据存储、消息队列或任何其他类型的工作负载，这些都是应用程序开发人员需要设计一个完整的应用程序所需要的，可以直接引用 Kubernetes 的 CRD；
 - Trait：各种运维规则，比如扩缩容、流量控制、安全性；
